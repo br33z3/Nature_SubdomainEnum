@@ -51,35 +51,35 @@ if [[ -n "$target" ]]; then
 	echo "[+] Sublist3r Started..."
 	spinner &
 	SPIN_PID=$!
-#	sublist3r -d $target -o sublister_result > /dev/null
+	sublist3r -d $target -o sublister_result > /dev/null
 	printf '\n'
 	echo "[+] Sublist3r Finished..."
-#	mv sublister_result $sublister_output
+	mv sublister_result $sublister_output
 	echo "[+] Result Saved Successfully..."
 
 ### amass Function Area ###
 	echo "[+] Amass Started..."
-#	amass enum -d $target -silent -o amass_result
+	amass enum -d $target -silent -o amass_result
 	printf '\n'
 	echo "[+] Amass Finished..."
-#	mv amass_result $amass_output
+	mv amass_result $amass_output
 	echo "[+] Result Saved Successfully..."
 
 ### subfinder Function Area ###
 	printf '\n'
 	echo "[+] Subfinder Started..."
-#	subfinder -d $target -o subfinder_result -silent > /dev/null
+	subfinder -d $target -o subfinder_result -silent > /dev/null
 	echo "[+] Subfinder Finished..."
-#	mv subfinder_result $subfinder_output
+	mv subfinder_result $subfinder_output
 	echo "[+] Result Saved Successfully..."
 
 ### aquatone Function Area ###
 	printf '\n'
 	echo "[+] Aquatone Started..."
 	echo "[!!!] This may take a while DO NOT EXIT..."
-#	aquatone-discover -d $target --threads 30
+	aquatone-discover -d $target --threads 30
 	echo "[+] Aquatone Finished..."
-#	mv $aquatonedirectory $aquatone_output
+	mv $aquatonedirectory $aquatone_output
 	echo "[+] Result Saved Successfully..."
 
 ### Extract Unique Subdomains Area ###
