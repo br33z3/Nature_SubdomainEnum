@@ -1,0 +1,39 @@
+----------------------------------------------------------------------
+##amass##
+apt-get install amass
+mkdir -p /root/.config/amass
+touch /root/.config/amass/config.ini => #https://github.com/OWASP/Amass/blob/master/examples/config.ini
+API keyleri gömüyoruz oraya
+amass enum -d <target> -o result => sadece domainleri yazıyor.
+----------------------------------------------------------------------
+##sublist3r##
+apt-get install sublist3r
+sublist3r -d target -o result => sadece domainleri yazıyor.
+----------------------------------------------------------------------
+##subfinder##
+
+apt-get install golang => require go
+
+#mv /{gopath}/bin/subfinder /usr/bin/subfinder
+mv /root/go/bin/subfinder /usr/bin/subfinder (default) 
+
+/root/.config/subfinder/config.yaml =>  API KEYLERİ GÖMMEK İÇİN CONFIG
+
+subfinder -d target -o result
+----------------------------------------------------------------------
+##aquatone##
+wget "https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip"
+unzip aquatone_linux_amd64_1.7.0.zip
+mv aquatone /usr/bin/aquatone
+----------------------------------------------------------------------
+##aquatone##
+https://github.com/ehsahil/recon-my-way/tree/master/aquatone
+gem install aquatone
+aquatone-discover -d target
+aquatone-takeover -d target > result
+
+
+
+
+
+
