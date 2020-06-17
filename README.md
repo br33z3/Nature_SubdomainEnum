@@ -28,6 +28,6 @@ Use every tool and give output for each one.</br>
 #### Usage
   ```sh
 $ chmod +x nature.sh
-$ /nature.sh <domain>
+$ /nature.sh example.com
 ```
   
