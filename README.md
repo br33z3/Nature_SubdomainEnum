@@ -18,4 +18,5 @@ Change <.onion site> parts from the code to a valid onion site that you want to 
 
 #### Usage
 chmod +x nature.sh
-./nature.sh <domain>
+./nature.sh
+<br><domain>
