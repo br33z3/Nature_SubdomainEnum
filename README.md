@@ -1,7 +1,11 @@
 # Nature_SubdomainEnumeration
 In-depth Subdomain Enumeration with Combined Tools
 
-</br>Simple script  for crawling **.onion** sites.</br>
+</br>Simple script for in-depth subdomain enumeration with </br>
+**-> Sublist3r</br>
+-> Amass</br>
+-> Aquatone</br>
+-> Subfinder</br>**
 Crawl pages and find href links.</br>
 Follow links and crawl recursively.</br>
 Delete duplicate links in the end and show final result.</br></br>
@@ -14,7 +18,7 @@ Delete duplicate links in the end and show final result.</br></br>
 <br>`GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder` Install Subfinder
 
 #### Prerequisites
-Change <.onion site> parts from the code to a valid onion site that you want to crawling</br>
+----</br>
 
 #### Usage
   ```sh
