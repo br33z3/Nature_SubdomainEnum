@@ -13,7 +13,7 @@ sublist3r -d target -o result => sadece domainleri yazıyor.
 ##subfinder##
 
 apt-get install golang => require go
-
+GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
 #mv /{gopath}/bin/subfinder /usr/bin/subfinder
 mv /root/go/bin/subfinder /usr/bin/subfinder (default) 
 
