@@ -17,5 +17,8 @@ Delete duplicate links in the end and show final result.</br></br>
 Change <.onion site> parts from the code to a valid onion site that you want to crawling</br>
 
 #### Usage
-chmod +x nature.sh
-**</br>./nature.sh** <domain>
+  ```sh
+$ chmod +x nature.sh
+$ /nature.sh <domain>
+```
+  
