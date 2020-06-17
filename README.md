@@ -10,7 +10,7 @@ Use every tool and give output for each one.</br>
 **Combine Subdomains into one large and Unique Subdomain file.**</br>
 **Find Reverse-IP for each Subdomain and append it to FINAL result file.**</br></br>
 **Give FINAL result file contain BIG,UNIQUE,TOTAL Subdomain included Reverse-IP adresses.**</br></br>
-**After giving FINAL result file script start detailed port(80, 81, 443, 591, 2082, 2087, 2095, 2096, 3000, 8000, 8001, 8008, 8080, 8083, 8443, 8834, 8888) scan and give results.
+**After giving FINAL result file script start detailed port(80, 81, 443, 591, 2082, 2087, 2095, 2096, 3000, 8000, 8001, 8008, 8080, 8083, 8443, 8834, 8888) scan and give results.**
 
 #### Install Requirements
 `apt-get install sublist3r` Install Sublist3r
