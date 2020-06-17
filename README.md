@@ -6,9 +6,11 @@ In-depth Subdomain Enumeration with Combined Tools
 -> Amass</br>
 -> Aquatone</br>
 -> Subfinder</br>**
-Crawl pages and find href links.</br>
-Follow links and crawl recursively.</br>
-Delete duplicate links in the end and show final result.</br></br>
+Use every tool and give output for each one.</br>
+**Combine Subdomains into one large and Unique Subdomain file.**</br>
+**Find Reverse-IP for each Subdomain and append it to FINAL result file.**</br></br>
+**Give FINAL result file contain BIG,UNIQUE,TOTAL Subdomain included Reverse-IP adresses.**</br>
+
 
 #### Install Requirements
 `apt-get install sublist3r` Install Sublist3r
