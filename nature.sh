@@ -77,7 +77,7 @@ if [[ -n "$target" ]]; then
 	printf '\n'
 	echo "[+] Aquatone Started..."
 	echo "[!!!] This may take a while DO NOT EXIT..."
-	aquatone-discover -d $target --threads 30
+	aquatone-discover -d $target --threads 50 >/dev/null
 	echo "[+] Aquatone Finished..."
 	mv $aquatonedirectory $aquatone_output
 	echo "[+] Result Saved Successfully..."
