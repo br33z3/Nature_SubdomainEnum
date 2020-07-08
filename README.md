@@ -26,7 +26,7 @@ Use every tool and give output for each one.</br>
   ```sh
 $ chmod +x install.sh
 $ /install.sh 
-```</br>
+```
 
 #### Usage
   ```sh
