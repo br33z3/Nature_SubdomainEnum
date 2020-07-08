@@ -54,6 +54,9 @@ if [[ -n "$target" ]]; then
 	sublist3r -d $target -o sublister_result > /dev/null
 	printf '\n'
 	echo "[+] Sublist3r Finished..."
+	cat sublister_result|tr -s '<BR>' '\n' |sort -u > temp
+	rm sublister_result
+	mv temp sublister_result
 	mv sublister_result $sublister_output
 	echo "[+] Result Saved Successfully..."
 
@@ -77,7 +80,7 @@ if [[ -n "$target" ]]; then
 	printf '\n'
 	echo "[+] Aquatone Started..."
 	echo "[!!!] This may take a while DO NOT EXIT..."
-	aquatone-discover -d $target --threads 50 >/dev/null
+	aquatone-discover -d $target --threads 50 > /dev/null
 	echo "[+] Aquatone Finished..."
 	mv $aquatonedirectory $aquatone_output
 	echo "[+] Result Saved Successfully..."
@@ -104,12 +107,26 @@ if [[ -n "$target" ]]; then
 	rm  $target/bulkdomain
 	echo "[+] Reverse-IP Search Finished..."
 	echo "[!!!] Exported All Files Inside $outputdirectory..."
-	echo "[+++] Starting Port Scan For All Scope..."
 	sleep 5
-	cat $target/everything|aquatone -ports large -scan-timeout 5000 -http-timeout 10000 -threads 30 -out $target/aquatone
-
+	echo "[?]Do you want to scan default web service ports for all found subdomains? Default is Yes [Y / n] :"
+	read chooise
+	if [[ ! $chooise =~ ^[Nn]$ ]]
+	then
+		echo "[+++] Starting Port Scan For All Scope..."
+		cat $target/everything|aquatone -ports medium -scan-timeout 10000 -http-timeout 25000 -threads 30 -out $target/aquatone
+		rm -rf headers/ html/ screenshots/
+	else
+		echo "[!]All found subdomains and reverse-ip adresses saved to = everything "
+	fi
 ### Extract Unique Subdomains Area ###
+### Information Area ###
 
+
+
+
+
+
+### Information Area ###
 else
 	echo "Please Specify Target Domain"
 	echo "Usage $0 <domain>"
