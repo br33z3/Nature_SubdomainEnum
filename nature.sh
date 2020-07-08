@@ -109,7 +109,8 @@ if [[ -n "$target" ]]; then
 	echo "[!!!] Exported All Files Inside $outputdirectory..."
 	sleep 5
 	echo "[?]Do you want to scan default web service ports for all found subdomains? Default is Yes [Y / n] :"
-	read chooise
+	exec 3<&0 </dev/null
+	read -r chooise <&3
 	if [[ ! $chooise =~ ^[Nn]$ ]]
 	then
 		echo "[+++] Starting Port Scan For All Scope..."
