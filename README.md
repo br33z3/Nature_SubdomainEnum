@@ -22,8 +22,11 @@ Use every tool and give output for each one.</br>
 <br>`apt-get install golang` **Install Golang for Subfinder**
 <br>`GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder` **Install Subfinder**
 
-#### Prerequisites
-----</br>
+#### Easy Install
+  ```sh
+$ chmod +x install.sh
+$ /install.sh 
+```</br>
 
 #### Usage
   ```sh
