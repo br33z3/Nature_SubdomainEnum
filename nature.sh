@@ -43,7 +43,11 @@ subfinder_output=${outputdirectory}"/subfinder_result"
 aquatone_output=${outputdirectory}"/aquatone_result"
 
 if [[ -n "$target" ]]; then
-
+	
+	printf '\n\n'
+	echo -e "\e[35m[?]Do you want to scan default web service ports for all found subdomains? Default is Yes [Y / n] :"
+        read -r chooise
+	echo "$chooise"
 ### Sublist3r Function Area ###
 	printf '\n\n'
 	mkdir $target 2>/dev/null
@@ -78,9 +82,9 @@ if [[ -n "$target" ]]; then
 
 ### aquatone Function Area ###
 	printf '\n'
-	echo "[+] Aquatone Started..."
+ 	echo "[+] Aquatone Started..."
 	echo "[!!!] This may take a while DO NOT EXIT..."
-	aquatone-discover -d $target --threads 50 > /dev/null
+	aquatone-discover -d $target --threads 50 --disable-collectors dictionary > /dev/null 
 	echo "[+] Aquatone Finished..."
 	mv $aquatonedirectory $aquatone_output
 	echo "[+] Result Saved Successfully..."
@@ -108,9 +112,6 @@ if [[ -n "$target" ]]; then
 	echo "[+] Reverse-IP Search Finished..."
 	echo "[!!!] Exported All Files Inside $outputdirectory..."
 	sleep 5
-	echo "[?]Do you want to scan default web service ports for all found subdomains? Default is Yes [Y / n] :"
-	exec 3<&0 </dev/null
-	read -r chooise <&3
 	if [[ ! $chooise =~ ^[Nn]$ ]]
 	then
 		echo "[+++] Starting Port Scan For All Scope..."
@@ -139,5 +140,6 @@ fi
 
 ### finish the spinner process in the end ###
 kill -9 $SPIN_PID 2>/dev/null
+
 
 
