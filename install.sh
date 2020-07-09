@@ -24,6 +24,9 @@ echo "[+]golang Installed Successfully"
 echo "[!]Installing Subfinder"
 GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder > /dev/null
 echo "[+]Subfinder Installed Successfully"
+rm LICENSE.txt
+rm aquatone_linux_amd64_1.7.0.zip
+rm README.md
 echo "---------------------------------------"
 echo "ALL requirements installed Successfully"
 echo "---------------------------------------"
