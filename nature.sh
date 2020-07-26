@@ -42,6 +42,7 @@ amass_output=${outputdirectory}"/amass_result"
 subfinder_output=${outputdirectory}"/subfinder_result"
 aquatone_output=${outputdirectory}"/aquatone_result"
 dnsmap_output=${outputdirectory}"/dnsmap_result"
+fierce_output=${outputdirectory}"/fierce_result"
 
 if [[ -n "$target" ]]; then
 	
@@ -92,6 +93,17 @@ if [[ -n "$target" ]]; then
 	echo "[+] Subfinder Finished..."
 	mv subfinder_result $subfinder_output
 	echo "[+] Result Saved Successfully..."
+	
+### fierce Function Area ###
+	printf '\n'
+	echo "[+] Fierce Started..."
+	fierce --dns $target --file fierce_result > /dev/null
+	cat fierce_result | grep $target | awk '{print $2}' | tail -n+4 | sort -u > fierce_temp
+	rm fierce_result
+	mv fierce_temp > fierce_result
+	echo "[+] Fierce Finished..."
+	mv fierce_result $fierce_output
+	echo "[+] Result Saved Successfully..."
 
 ### aquatone Function Area ###
 	printf '\n'
@@ -109,6 +121,7 @@ if [[ -n "$target" ]]; then
 	cat $target/subfinder_result >> $target/bulkdomain
 	cat $target/amass_result >> $target/bulkdomain
 	cat $target/dnsmap_result >> $target/bulkdomain
+	cat $target/fierce_result >> $target/bulkdomain
 	cat $target/aquatone_result | cut -d "," -f 1 >> $target/bulkdomain
 	sort -u $target/bulkdomain > $target/alluniquedomains
 	echo "[+] Extracted Unique Subdomains..."
@@ -122,6 +135,7 @@ if [[ -n "$target" ]]; then
 	rm  $target/subfinder_result
 	rm  $target/amass_result
 	rm  $target/dnsmap_result
+	rm  $target/fierce_result
 	rm  $target/aquatone_result
 	rm  $target/bulkdomain
 	echo "[+] Reverse-IP Search Finished..."
