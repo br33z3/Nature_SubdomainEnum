@@ -41,6 +41,7 @@ sublister_output=${outputdirectory}"/sublister_result"
 amass_output=${outputdirectory}"/amass_result"
 subfinder_output=${outputdirectory}"/subfinder_result"
 aquatone_output=${outputdirectory}"/aquatone_result"
+dnsmap_output=${outputdirectory}"/dnsmap_result"
 
 if [[ -n "$target" ]]; then
 	
@@ -72,6 +73,18 @@ if [[ -n "$target" ]]; then
 	mv amass_result $amass_output
 	echo "[+] Result Saved Successfully..."
 
+### dnsmap Function Area ###
+	echo "[+] DNSMap Started..."
+	dnsmap $target -r dnsmap_result -d 200
+	printf '\n'
+	echo "[+] DNSMap Finished..."
+	cat dnsmap_result| grep $target > dnsmap_domains
+	rm dnsmap_result
+	mv dnsmap_domains dnsmap_result
+	mv dnsmap_result $dnsmap_output
+	echo "[+] Result Saved Successfully..."
+
+
 ### subfinder Function Area ###
 	printf '\n'
 	echo "[+] Subfinder Started..."
@@ -84,7 +97,7 @@ if [[ -n "$target" ]]; then
 	printf '\n'
  	echo "[+] Aquatone Started..."
 	echo "[!!!] This may take a while DO NOT EXIT..."
-	aquatone-discover -d $target --threads 50 --disable-collectors dictionary > /dev/null 
+	aquatone-discover -d $target --threads 50 > /dev/null 
 	echo "[+] Aquatone Finished..."
 	mv $aquatonedirectory $aquatone_output
 	echo "[+] Result Saved Successfully..."
@@ -95,6 +108,7 @@ if [[ -n "$target" ]]; then
 	cat $target/sublister_result > $target/bulkdomain
 	cat $target/subfinder_result >> $target/bulkdomain
 	cat $target/amass_result >> $target/bulkdomain
+	cat $target/dnsmap_result >> $target/bulkdomain
 	cat $target/aquatone_result | cut -d "," -f 1 >> $target/bulkdomain
 	sort -u $target/bulkdomain > $target/alluniquedomains
 	echo "[+] Extracted Unique Subdomains..."
@@ -107,6 +121,7 @@ if [[ -n "$target" ]]; then
 	rm  $target/sublister_result
 	rm  $target/subfinder_result
 	rm  $target/amass_result
+	rm  $target/dnsmap_result
 	rm  $target/aquatone_result
 	rm  $target/bulkdomain
 	echo "[+] Reverse-IP Search Finished..."
