@@ -75,7 +75,7 @@ if [[ -n "$target" ]]; then
 
 ### dnsmap Function Area ###
 	echo "[+] DNSMap Started..."
-	dnsmap $target -r dnsmap_result -d 200
+	dnsmap $target -r dnsmap_result -d 200 > /dev/null
 	printf '\n'
 	echo "[+] DNSMap Finished..."
 	cat dnsmap_result| grep $target > dnsmap_domains
