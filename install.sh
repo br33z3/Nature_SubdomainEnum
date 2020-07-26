@@ -27,6 +27,9 @@ echo "[+]Subfinder Installed Successfully"
 echo "[!]Installing DNSMap"
 apt-get install dnsmap > /dev/null
 echo "[+]DNSMap Installed Successfully"
+echo "[!]Installing Fierce"
+apt-get install fierce > /dev/null
+echo "[+]Fierce Installed Successfully"
 rm LICENSE.txt
 rm aquatone_linux_amd64_1.7.0.zip
 rm README.md
