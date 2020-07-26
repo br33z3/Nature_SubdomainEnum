@@ -5,7 +5,8 @@ In-depth Subdomain Enumeration with Combined Tools
 **-> Sublist3r</br>
 -> Amass</br>
 -> Aquatone</br>
--> Subfinder</br>**
+-> Subfinder</br>
+-> DNSMap**</br>
 Use every tool and give output for each one.</br>
 **Combine Subdomains into one large and Unique Subdomain file.**</br>
 **Find Reverse-IP for each Subdomain and append it to FINAL result file.**</br></br>
