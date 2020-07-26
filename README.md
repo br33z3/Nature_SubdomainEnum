@@ -6,7 +6,7 @@ In-depth Subdomain Enumeration with Combined Tools
 -> Amass</br>
 -> Aquatone</br>
 -> Subfinder</br>
--> DNSMap**</br>
+-> DNSMap</br>
 -> Fierce**</br>
 Use every tool and give output for each one.</br>
 **Combine Subdomains into one large and Unique Subdomain file.**</br>
