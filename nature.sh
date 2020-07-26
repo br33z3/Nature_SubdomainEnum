@@ -100,7 +100,7 @@ if [[ -n "$target" ]]; then
 	fierce --dns $target --file fierce_result > /dev/null
 	cat fierce_result | grep $target | awk '{print $2}' | tail -n+4 | sort -u > fierce_temp
 	rm fierce_result
-	mv fierce_temp > fierce_result
+	mv fierce_temp fierce_result
 	echo "[+] Fierce Finished..."
 	mv fierce_result $fierce_output
 	echo "[+] Result Saved Successfully..."
