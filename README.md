@@ -14,6 +14,7 @@ Use every tool and give output for each one.</br>
 
 #### Install Requirements
 `apt-get install sublist3r` **Install Sublist3r**</br>
+`apt-get install dnsmap` **Install DNSMAP**</br>
 </br>**Install Different Aquatone**</br>`wget "https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip"`</br>
 `unzip aquatone_linux_amd64_1.7.0.zip`</br>
 `mv aquatone /usr/bin/aquatone`</br>
