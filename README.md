@@ -7,6 +7,7 @@ In-depth Subdomain Enumeration with Combined Tools
 -> Aquatone</br>
 -> Subfinder</br>
 -> DNSMap**</br>
+-> Fierce**</br>
 Use every tool and give output for each one.</br>
 **Combine Subdomains into one large and Unique Subdomain file.**</br>
 **Find Reverse-IP for each Subdomain and append it to FINAL result file.**</br></br>
@@ -16,6 +17,7 @@ Use every tool and give output for each one.</br>
 #### Install Requirements
 `apt-get install sublist3r` **Install Sublist3r**</br>
 `apt-get install dnsmap` **Install DNSMAP**</br>
+`apt-get install fierce` **Install fierce**</br>
 </br>**Install Different Aquatone**</br>`wget "https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip"`</br>
 `unzip aquatone_linux_amd64_1.7.0.zip`</br>
 `mv aquatone /usr/bin/aquatone`</br>
