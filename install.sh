@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+echo "asdasd"
 echo "[!]Installing Sublist3r"
 apt-get install sublist3r > /dev/null
 echo "[+]Sublist3r Installed Successfully"
