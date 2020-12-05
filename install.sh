@@ -34,6 +34,7 @@ echo "[+]Fierce Installed Successfully"
 rm LICENSE.txt
 rm aquatone_linux_amd64_1.7.0.zip
 rm README.md
+chmod +x nature.sh
 echo "---------------------------------------"
 echo "ALL requirements installed Successfully"
 echo "---------------------------------------"
