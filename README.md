@@ -24,7 +24,7 @@ Use every tool and give output for each one.</br>
 <br>`apt-get install amass` **Install Amass**
 <br>`gem install aquatone`  **Install Aquatone**
 <br>`apt-get install golang` **Install Golang for Subfinder**
-<br>`GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder` **Install Subfinder**
+<br>`GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder` **Install Subfinder**
 
 #### Easy Install
   ```sh
