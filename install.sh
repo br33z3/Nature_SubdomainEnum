@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+apt-get update > /dev/null
 echo "[!]Installing Sublist3r"
 apt-get install sublist3r -y > /dev/null
 echo "[+]Sublist3r Installed Successfully"
