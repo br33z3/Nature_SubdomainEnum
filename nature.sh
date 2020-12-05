@@ -34,6 +34,7 @@ spinner() {
 
 chars="/-\|"
 target=$1
+scanwebserviceports=$2
 rootdirectory=$PWD
 aquatonedirectory="/root/aquatone/"${target}"/hosts.txt"
 outputdirectory=${rootdirectory}"/"${target}
@@ -45,11 +46,7 @@ dnsmap_output=${outputdirectory}"/dnsmap_result"
 fierce_output=${outputdirectory}"/fierce_result"
 
 if [[ -n "$target" ]]; then
-	
-	printf '\n\n'
-	echo -e "\e[35m[?]Do you want to scan default web service ports for all found subdomains? Default is Yes [Y / n] :"
-        read -r chooise
-	echo "$chooise"
+
 ### Sublist3r Function Area ###
 	printf '\n\n'
 	mkdir $target 2>/dev/null
@@ -97,8 +94,8 @@ if [[ -n "$target" ]]; then
 ### fierce Function Area ###
 	printf '\n'
 	echo "[+] Fierce Started..."
-	fierce --dns $target --file fierce_result > /dev/null
-	cat fierce_result | grep $target | awk '{print $2}' | tail -n+4 | sort -u > fierce_temp
+	fierce --domain $target > fierce_result
+	cat fierce_result |grep Found| awk '{print $2}' > fierce_temp
 	rm fierce_result
 	mv fierce_temp fierce_result
 	echo "[+] Fierce Finished..."
@@ -107,7 +104,7 @@ if [[ -n "$target" ]]; then
 
 ### aquatone Function Area ###
 	printf '\n'
- 	echo "[+] Aquatone Started..."
+	echo "[+] Aquatone Started..."
 	echo "[!!!] This may take a while DO NOT EXIT..."
 	aquatone-discover -d $target --threads 50 > /dev/null 
 	echo "[+] Aquatone Finished..."
@@ -141,7 +138,7 @@ if [[ -n "$target" ]]; then
 	echo "[+] Reverse-IP Search Finished..."
 	echo "[!!!] Exported All Files Inside $outputdirectory..."
 	sleep 5
-	if [[ ! $chooise =~ ^[Nn]$ ]]
+	if [[ $scanwebserviceports == "scanwebservices" ]]
 	then
 		echo "[+++] Starting Port Scan For All Scope..."
 		cat $target/everything|aquatone -ports medium -scan-timeout 10000 -http-timeout 25000 -threads 30 -out $target/aquatone
@@ -152,23 +149,12 @@ if [[ -n "$target" ]]; then
 ### Extract Unique Subdomains Area ###
 ### Information Area ###
 
-
-
-
-
-
 ### Information Area ###
 else
 	echo "Please Specify Target Domain"
-	echo "Usage $0 <domain>"
+	echo "Usage1 $0 <domain>"
+	echo "Usage2 $0 <domain> scanwebservices"
 fi
-
-
-
-
 
 ### finish the spinner process in the end ###
 kill -9 $SPIN_PID 2>/dev/null
-
-
-
