@@ -32,9 +32,13 @@ $ chmod +x install.sh
 $ /install.sh 
 ```
 
-#### Usage
+#### Usage For Only Extract Subdomains
   ```sh
 $ chmod +x nature.sh
 $ /nature.sh example.com
 ```
-  
+#### Usage For Scan Web Services After Extract Subdomains
+  ```sh
+$ chmod +x nature.sh
+$ /nature.sh example.com scanwebserviceports
+```  
