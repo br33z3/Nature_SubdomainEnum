@@ -1,0 +1,15 @@
+# 13371337, mezunlarveogrenciler, baskent.edu.tr
+dn: uid=13371337,ou=mezunlarveogrenciler,dc=baskent,dc=edu,dc=tr
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+sn: BaskentSec
+givenName: BaskentSec
+cn: BaskentSec
+displayName: BaskentSec Siber Guvenlik Toplulugu
+uidNumber: 13371337
+gidNumber: 100
+loginShell: /sbin/nologin
+homeDirectory: /home/s20142015/13371337
+mail: baskentsec@baskent.edu.tr
+userPassword:: e1NTSEF9ZTZ0Vm5BNEl0c1FSWTJEdzNXOUY2b2s2WFUwN0x5SlA=
