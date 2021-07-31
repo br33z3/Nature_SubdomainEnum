@@ -1,5 +1,5 @@
 # 13371339, mezunlarveogrenciler, baskent.edu.tr
-dn: uid=13371338,ou=mezunlarveogrenciler,dc=baskent,dc=edu,dc=tr
+dn: uid=13371339,ou=mezunlarveogrenciler,dc=baskent,dc=edu,dc=tr
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
