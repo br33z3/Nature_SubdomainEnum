@@ -44,8 +44,13 @@ subfinder_output=${outputdirectory}"/subfinder_result"
 aquatone_output=${outputdirectory}"/aquatone_result"
 dnsmap_output=${outputdirectory}"/dnsmap_result"
 fierce_output=${outputdirectory}"/fierce_result"
+token=<ENTER TOKEN>
+chatid=<ENTER CHATID>
+#sudo localectl set-locale LC_TIME=en_DE.UTF-8 for date
 
 if [[ -n "$target" ]]; then
+	date=$(date +%F" "%T)
+	curl -d chat_id=-423254144 -d text=$target" Domain'i için Subdomain taraması başladı!(From SubdomainEnum)  $date" https://api.telegram.org/<ENTER BOT INFORMATION>/sendMessage
 
 ### Sublist3r Function Area ###
 	printf '\n\n'
@@ -63,14 +68,19 @@ if [[ -n "$target" ]]; then
 	mv sublister_result $sublister_output
 	echo "[+] Result Saved Successfully..."
 
+	numico=$(cat $sublister_output|wc -l)
+	if [[ $numico -lt 350 ]]
+	then
 ### amass Function Area ###
-	echo "[+] Amass Started..."
-	amass enum -d $target -silent -o amass_result
-	printf '\n'
-	echo "[+] Amass Finished..."
-	mv amass_result $amass_output
-	echo "[+] Result Saved Successfully..."
-
+		echo "[+] Amass Started..."
+		amass enum -d $target -silent -o amass_result
+		printf '\n'
+		echo "[+] Amass Finished..."
+		mv amass_result $amass_output
+		echo "[+] Result Saved Successfully..."
+	else
+	echo "sublister greater than 500 skip amass"
+	fi
 ### dnsmap Function Area ###
 	echo "[+] DNSMap Started..."
 	dnsmap $target -r dnsmap_result -d 200 > /dev/null
@@ -110,7 +120,7 @@ if [[ -n "$target" ]]; then
 	echo "[+] Aquatone Finished..."
 	mv $aquatonedirectory $aquatone_output
 	echo "[+] Result Saved Successfully..."
-
+#
 ### Extract Unique Subdomains Area ###
 	printf '\n'
 	echo "[+] Extracting Unique Subdomains..."
@@ -123,11 +133,11 @@ if [[ -n "$target" ]]; then
 	sort -u $target/bulkdomain > $target/alluniquedomains
 	echo "[+] Extracted Unique Subdomains..."
 	echo "[+] Starting Reverse-IP Search..."
-	cat $target/alluniquedomains | while read line; do host $line 2>/dev/null; done | grep address > $target/tmp
-	cat $target/tmp | cut -d " " -f 4 | sort -u > $target/ipaddresses
-	rm  $target/tmp
-	cat $target/alluniquedomains > $target/everything
-	cat $target/ipaddresses >> $target/everything
+	#cat $target/alluniquedomains | while read line; do host $line 2>/dev/null; done | grep address > $target/tmp
+	#cat $target/tmp | cut -d " " -f 4 | sort -u > $target/ipaddresses
+	#rm  $target/tmp
+	#cat $target/alluniquedomains > $target/everything
+	#cat $target/ipaddresses >> $target/everything
 	rm  $target/sublister_result
 	rm  $target/subfinder_result
 	rm  $target/amass_result
@@ -135,6 +145,8 @@ if [[ -n "$target" ]]; then
 	rm  $target/fierce_result
 	rm  $target/aquatone_result
 	rm  $target/bulkdomain
+	#nmap -iL $target/alluniquedomains -p80,443 -r --open -oN web_ports
+	#cat web_ports|grep "report for"|cut -d " " -f 5 > webiko
 	echo "[+] Reverse-IP Search Finished..."
 	echo "[!!!] Exported All Files Inside $outputdirectory..."
 	sleep 5
@@ -145,9 +157,13 @@ if [[ -n "$target" ]]; then
 		rm -rf headers/ html/ screenshots/
 	else
 		echo "[!]All found subdomains and reverse-ip adresses saved to = everything "
+		nums=$(sudo cat $target/alluniquedomains|wc -l) 
 	fi
 ### Extract Unique Subdomains Area ###
 ### Information Area ###
+	
+date=$(date +%F" "%T)
+curl -d chat_id=-423254144 -d text=$target" Domain'ine ait"" $nums adet Subdomain Bulundu!(From SubdomainEnum)   $date" https://api.telegram.org/<ENTER BOT INFORMATION>/sendMessage
 
 ### Information Area ###
 else
@@ -156,5 +172,9 @@ else
 	echo "Usage2 $0 <domain> scanwebservices"
 fi
 
+
 ### finish the spinner process in the end ###
 kill -9 $SPIN_PID 2>/dev/null
+
+
+
