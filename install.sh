@@ -22,7 +22,7 @@ echo "[!]Installing golang for Subfinder"
 apt-get install golang -y > /dev/null
 echo "[+]golang Installed Successfully"
 echo "[!]Installing Subfinder"
-GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder > /dev/null
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest > /dev/null
 cp ~/go/bin/subfinder /bin/subfinder
 echo "[+]Subfinder Installed Successfully"
 echo "[!]Installing DNSMap"
