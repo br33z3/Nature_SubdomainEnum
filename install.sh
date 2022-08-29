@@ -1,6 +1,7 @@
 #!/bin/bash
 
-
+echo "[!]Installing unzip"
+apt-get install unzip -y > /dev/null
 echo "[!]Installing Sublist3r"
 apt-get install sublist3r -y > /dev/null
 echo "[+]Sublist3r Installed Successfully"
