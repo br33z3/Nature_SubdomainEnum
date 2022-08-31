@@ -35,7 +35,7 @@ spinner() {
 chars="/-\|"
 target=$1
 scanwebserviceports=$2
-aquatoneconfig=$3
+aquatoneconfig=$2
 rootdirectory=$PWD
 aquatonedirectory="/root/aquatone/"${target}"/hosts.txt"
 outputdirectory=${rootdirectory}"/"${target}
