@@ -50,7 +50,7 @@ chatid=<ENTER CHATID>
 
 if [[ -n "$target" ]]; then
 	date=$(date +%F" "%T)
-	curl -d chat_id=-423254144 -d text=$target" Domain'i için Subdomain taraması başladı!(From SubdomainEnum)  $date" https://api.telegram.org/<ENTER BOT INFORMATION>/sendMessage
+	curl -d chat_id=-423254144 -d text=$target" Domain'i için Subdomain taraması başladı!(From SubdomainEnum)  $date" https://api.telegram.org/bot$token/sendMessage
 
 ### Sublist3r Function Area ###
 	printf '\n\n'
