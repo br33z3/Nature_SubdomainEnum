@@ -35,6 +35,7 @@ spinner() {
 chars="/-\|"
 target=$1
 scanwebserviceports=$2
+aquatoneconfig=$3
 rootdirectory=$PWD
 aquatonedirectory="/root/aquatone/"${target}"/hosts.txt"
 outputdirectory=${rootdirectory}"/"${target}
@@ -112,15 +113,20 @@ if [[ -n "$target" ]]; then
 	mv fierce_result $fierce_output
 	echo "[+] Result Saved Successfully..."
 
-### aquatone Function Area ###
-	printf '\n'
-	echo "[+] Aquatone Started..."
-	echo "[!!!] This may take a while DO NOT EXIT..."
-	aquatone-discover -d $target --threads 50 > /dev/null 
-	echo "[+] Aquatone Finished..."
-	mv $aquatonedirectory $aquatone_output
-	echo "[+] Result Saved Successfully..."
-#
+	if [[ $aquatoneconfig == "noaquatone" ]]
+	then
+		echo "[+++] Skipping Aquatone Scan"
+	else
+		### aquatone Function Area ###
+		printf '\n'
+		echo "[+] Aquatone Started..."
+		echo "[!!!] This may take a while DO NOT EXIT..."
+		aquatone-discover -d $target --threads 50 > /dev/null 
+		echo "[+] Aquatone Finished..."
+		mv $aquatonedirectory $aquatone_output
+		echo "[+] Result Saved Successfully..."
+	fi
+
 ### Extract Unique Subdomains Area ###
 	printf '\n'
 	echo "[+] Extracting Unique Subdomains..."
